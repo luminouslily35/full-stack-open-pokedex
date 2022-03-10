@@ -1,4 +1,4 @@
-name: Testing stuff
+name: Testing github events
 
 on:
   push:
@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
-      - name: gihub context
+      - name: event
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
+          EVENT: ${{ toJson(github.event) }}
+        run: echo "$EVENT"
       - name: commits
         env:
           COMMITS: ${{ toJson(github.event.commits) }}
