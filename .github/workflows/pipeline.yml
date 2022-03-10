@@ -9,7 +9,7 @@ on:
     types: [opened, synchronize]
 
 jobs:
-  normal_ci:
+  simple_deployment_pipeline:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -40,14 +40,21 @@ jobs:
           healthcheck: "https://pokemon-fanatic.herokuapp.com/health"
           checkstring: "ok"
           rollbackonhealthcheckfailed: true
+<<<<<<< HEAD
 
+=======
+>>>>>>> e2682f2f54ece845fd4aa14be457b0566fc97b7e
   tag_release:
     needs: [simple_deployment_pipeline]
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
       - name: Bump version and push tag
+<<<<<<< HEAD
         if: ${{ github.event_name == 'push' && !contains(join(toJson(github.event.commits.*.message), ', '), '#skip')}}
+=======
+        if: ${{ github.event_name == 'push' }}
+>>>>>>> e2682f2f54ece845fd4aa14be457b0566fc97b7e
         uses: anothrNick/github-tag-action@1.36.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
