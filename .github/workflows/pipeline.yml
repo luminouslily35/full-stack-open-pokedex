@@ -33,3 +33,5 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: pokemon-fanatic
           heroku_email: lightofthelily35@gmail.com
+          healthcheck: "https://[YOUR APP's NAME].herokuapp.com/health"
+          checkstring: "ok"
