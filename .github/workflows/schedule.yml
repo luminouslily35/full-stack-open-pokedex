@@ -1,19 +1,14 @@
 name: Scheduled health check
 
 on:
-  push:
-    branches:
-      - master
-
-# on:
-#   schedule:
-#     - cron: '0 6 * * *'
+  schedule:
+    - cron: '0 12 * * *'
 
 jobs:
   test_schedule:
     runs-on: ubuntu-latest
     steps:
-      - name: Every day at 6
+      - name: Every day at 12
         uses: jtalk/url-health-check-action@v2
         with:
           # Check the following URLs one by one sequentially
