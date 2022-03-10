@@ -7,7 +7,7 @@ on:
 
 jobs:
   simple_deployment_pipeline:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v2
@@ -16,4 +16,6 @@ jobs:
       - name: npm install
         run: npm install
       - name: lint
-        run: npm run eslint
+        run: npm run lint
+      - name: test
+        run: npm test
